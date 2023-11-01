@@ -1,0 +1,220 @@
+body, *{
+    box-sizing: border-box;
+    margin:  0;
+    --color1 : #FF4F58;
+    --color2 : #FFA343;
+    --color3 : #FFCB77;
+    --color4 : #63C384;
+    --color5 : #3587A4;
+    --color6 : #800080;
+}
+html{
+    height: 100%;
+}
+
+body{
+
+  display: flex;
+  justify-content: space-between;
+  margin-inline: 50px;
+  margin-block: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+  background: linear-gradient(to bottom right, var(--color5) 50%, var(--color4) 100%);
+}
+
+nav{
+    display: flex;
+    gap: 5px;
+    background: linear-gradient( to  right, var(--color1) 0%, var(--color2) 40%);
+    border-radius: 10px;
+    margin-block: 15px ;
+    padding-inline: 15px ;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.562);
+
+}
+nav .postItTab{
+    margin-left: auto;
+}
+nav button{
+    background-color: var(--color1);
+    color: white;
+    border: none;
+    align-self: center;
+    height: 60%;   
+    margin-left: 5px;
+    border-radius: 10px;
+    padding: 10px ;
+    word-break:normal;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.562);
+    transition: transform 0.2s;
+}
+
+h1{
+    margin-block: 20px;
+    color: white;
+    text-shadow: black 2px 2px 10px;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.container{
+    margin: 20px 0;
+    background-color: hwb(52 83% 0%);
+    min-height: 93vh;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: -5px -5px 0px 5px var(--color1);
+    padding: 20px;
+    transition: box-shadow 0.3s;
+    filter:drop-shadow(2px 2px 2px black)
+}
+.container:hover{
+    box-shadow: 5px 5px 0px 5px var(--color1);
+}
+input:hover, button:hover{
+    box-shadow: 2px 2px black
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+input, .addBtn, .inputTextarea{
+    font-weight: 600;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.562);
+    padding: 10px;    
+    border-radius: 10px;
+    height: 2.5em;
+    border: none;
+    letter-spacing: 1px;
+}
+
+.inputTextarea {
+    min-height: 20vh;
+    resize: vertical;
+}
+.addBtn, .deleteBtn, .expandBtn{
+    background-color: var(--color2);
+    color: white;
+    border: none;
+    transition: transform 0.1s;
+}
+
+.deleteBtn:active, .expandBtn:active, nav button:active {
+    transform: scale(0.9);
+}
+ul{
+    padding: 0;
+}
+h3{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 5px;
+    color: var(--color1);
+    text-shadow: 0px 1px 1px var(--color1);
+}
+span{
+    color: black;
+    line-height: 1em;
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem ;
+    text-shadow: none;
+}
+.task{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 1rem;
+    list-style: none;
+    background-color: var(--color3);
+    box-shadow: -2px -2px 0px 0px var(--color1);
+    /* filter: drop-shadow(1px 0 2px var(--color1)); */
+    border-radius: 10px;
+    margin-block: 5px;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: justify;
+    transition: 0.2s;
+}
+.task:hover{
+    transform: translate(5px, 5px);
+    box-shadow: -7px -7px 0px 0px var(--color1);
+    filter: drop-shadow(3px 0 5px var(--color1));
+    z-index: 1;
+}
+.deleteBtn{
+    margin-left: auto;
+}
+.deleteBtn::before{
+    content: "Delete";
+}    
+.deleteBtn, .expandBtn{
+    border-radius: 10px;
+    padding: 7px ;
+    word-break:normal;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.562);
+}
+.expandBtn::before{
+    content: "Expand / Shrink";
+}
+
+.textarea{
+    background-color: unset;
+    border: none;
+    max-width: 100%;
+    padding-inline: 10px;
+    height: fit-content;
+    font-size: 1rem;
+    resize: vertical;
+}
+.textarea::-webkit-scrollbar {
+    width: 10px;
+}
+.textarea::-webkit-scrollbar-track {
+    background-color: var(--color1);
+    border: 1px solid var(--color1);
+}
+.textarea::-webkit-scrollbar-thumb {
+    background-color: var(--color2);
+    border: 1px solid var(--color1);
+}
+.textarea::-webkit-resizer{
+    background-color: var(--color2);
+}
+.textarea:focus{
+    background-color:#fad6a0;
+    outline:  2px solid var(--color1);
+    border-radius: 2px;
+}
+
+
+@media (max-width: 1000px) {
+    body{
+        flex-direction: column; 
+        justify-content: center;
+        margin-inline: 25px;
+    }
+    .container, .inputContainer{
+        width: 100%;
+    }
+    .deleteBtn::before{
+        content: "D";
+    }
+    .expandBtn::before{
+        content: "E / S";
+    }
+}
